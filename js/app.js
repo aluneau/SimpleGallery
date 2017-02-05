@@ -10,6 +10,7 @@ app.config(function($routeProvider){
 app.factory('PictureFactory', function($http, $q){
   var factory = {
       folders : false,
+      pictures: false,
       getFolders : function(){
           var deferred = $q.defer();
           $http.get('api/getFolders.php')
@@ -35,6 +36,16 @@ app.factory('PictureFactory', function($http, $q){
           deferred.reject(msg);
         });
         return deferred.promise;
+      },
+      getPictures(folderName){
+        var deferred = $q.defer();
+        $http.post('api/getPictures.php', {folder:folderName}).then(function(response){
+          factory.pictures = response.data;
+          deferred.resolve(factory.pictures);
+        }, function(error){
+          deferred.reject("impossible de recuperer les photos du dossier")
+        });
+        return deferred.promise;
       }
     }
     return factory;
@@ -45,6 +56,9 @@ app.controller("PicturesController", function($scope, PictureFactory, $routePara
   PictureFactory.isFolderExist($routeParams.folder).then(function(found){
     if(found){
       $scope.folder = $routeParams.folder;
+      PictureFactory.getPictures($routeParams.folder).then(function(pictures){
+        $scope.pictures = pictures;
+      },function(msg){alert(msg)});
     }else{
       $location.path('/');
       $location.replace();
