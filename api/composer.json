@@ -1,0 +1,5 @@
+{
+    "require": {
+        "masterexploder/phpthumb": "^2.1"
+    }
+}
