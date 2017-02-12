@@ -1,5 +1,5 @@
 {
     "require": {
-        "masterexploder/phpthumb": "^2.1"
+        "claviska/simpleimage": "^3.2"
     }
 }

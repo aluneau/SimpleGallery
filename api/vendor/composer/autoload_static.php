@@ -4,18 +4,18 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9fed2a7160cad704f0c8a95ec97b45d7
+class ComposerStaticInit2c06f15cfb8b583eaf632665e868ccbf
 {
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/league/color-extractor/src',
+    );
+
     public static $prefixesPsr0 = array (
-        'P' => 
+        'c' => 
         array (
-            'PHPThumb\\Tests' => 
+            'claviska' => 
             array (
-                0 => __DIR__ . '/..' . '/masterexploder/phpthumb/tests',
-            ),
-            'PHPThumb' => 
-            array (
-                0 => __DIR__ . '/..' . '/masterexploder/phpthumb/src',
+                0 => __DIR__ . '/..' . '/claviska/simpleimage/src',
             ),
         ),
     );
@@ -23,7 +23,8 @@ class ComposerStaticInit9fed2a7160cad704f0c8a95ec97b45d7
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit9fed2a7160cad704f0c8a95ec97b45d7::$prefixesPsr0;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit2c06f15cfb8b583eaf632665e868ccbf::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit2c06f15cfb8b583eaf632665e868ccbf::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
