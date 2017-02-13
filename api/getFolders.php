@@ -8,7 +8,7 @@ foreach ($arr as $result) {
     if ($result === '.' or $result === '..') continue;
 
     if (is_dir($path . '/' . $result)) {
-      array_push($results, $result);
+        array_push($results, $result);
     }
 }
 
