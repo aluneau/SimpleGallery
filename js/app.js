@@ -12,7 +12,7 @@ app.directive('shortcut', function() {
         restrict: 'E',
         replace: true,
         scope: true,
-        link:    function postLink(scope){
+        link:  function postLink(scope){
             document.onkeyup= checkKey;
             function checkKey(e){
                 scope.$apply(scope.keyPressed(e));
