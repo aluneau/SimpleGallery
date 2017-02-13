@@ -1,3 +1,6 @@
 bower_components
 .idea
 .idea/*
+SimpleGallery.iml
+api/data/maroc/
+api/data/tunisie/
