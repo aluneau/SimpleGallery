@@ -1,80 +1,82 @@
 var app = angular.module('gallery', ['ngRoute']);
-app.config(function($routeProvider){
+app.config(function ($routeProvider) {
     $routeProvider
-        .when("/", {templateUrl : "partials/home.html", controller: "GalleryController"})
-        .when("/pictures/:folder", {templateUrl : "partials/pictures.html", controller: "PicturesController"})
-        .otherwise({redirectTo : "/"});
+        .when("/", {templateUrl: "partials/home.html", controller: "GalleryController"})
+        .when("/pictures/:folder", {templateUrl: "partials/pictures.html", controller: "PicturesController"})
+        .otherwise({redirectTo: "/"});
 });
 
 
-app.factory('PictureFactory', function($http, $q){
+app.factory('PictureFactory', function ($http, $q) {
     var factory = {
-        folders : false,
+        folders: false,
         pictures: false,
-        getFolders : function(){
+        getFolders: function () {
             var deferred = $q.defer();
             $http.get('api/getFolders.php')
-                .then(function(response){
+                .then(function (response) {
                     factory.folders = response.data;
                     deferred.resolve(factory.folders);
-                }, function(error){
+                }, function (error) {
                     deferred.reject("impossible de recuperer les dossiers");
                 });
             return deferred.promise;
         },
-        isFolderExist: function(folderName){
+        isFolderExist: function (folderName) {
             var deferred = $q.defer();
-            factory.getFolders().then(function(folders){
+            factory.getFolders().then(function (folders) {
                 var found = false;
-                for(var i=0; i<factory.folders.length; i++){
-                    if(folderName == factory.folders[i]){
+                for (var i = 0; i < factory.folders.length; i++) {
+                    if (folderName == factory.folders[i]) {
                         found = true;
                     }
                 }
                 deferred.resolve(found)
-            },function(msg){
+            }, function (msg) {
                 deferred.reject(msg);
             });
             return deferred.promise;
         },
         getPictures(folderName){
             var deferred = $q.defer();
-            $http.post('api/getPictures.php', {folder:folderName}).then(function(response){
+            $http.post('api/getPictures.php', {folder: folderName}).then(function (response) {
                 factory.pictures = response.data;
                 deferred.resolve(factory.pictures);
-            }, function(error){
+            }, function (error) {
                 deferred.reject("impossible de recuperer les photos du dossier")
             });
             return deferred.promise;
         }
-    }
+    };
     return factory;
 });
 
 
-app.controller("PicturesController", function($scope, PictureFactory, $routeParams, $location){
-    PictureFactory.isFolderExist($routeParams.folder).then(function(found){
-        if(found){
+app.controller("PicturesController", function ($scope, PictureFactory, $routeParams, $location) {
+    PictureFactory.isFolderExist($routeParams.folder).then(function (found) {
+        if (found) {
             $scope.folder = $routeParams.folder;
-            PictureFactory.getPictures($routeParams.folder).then(function(pictures){
+            PictureFactory.getPictures($routeParams.folder).then(function (pictures) {
                 $scope.pictures = pictures;
-            },function(msg){alert(msg)});
-        }else{
+            }, function (msg) {
+                alert(msg)
+            });
+        } else {
             $location.path('/');
             $location.replace();
         }
-    },function(msg){
+    }, function (msg) {
         $location.path('/');
         $location.replace();
     });
-})
+});
 
-app.controller('GalleryController', function($scope, PictureFactory) {
+app.controller('GalleryController', function ($scope, PictureFactory) {
     var galleryCtrl = this;
 
-    PictureFactory.getFolders().then(function(folders){
+    PictureFactory.getFolders().then(function (folders) {
         $scope.folders = folders;
-    }, function(msg){
+    }, function (msg) {
         alert(msg);
     });
 });
