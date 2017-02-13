@@ -17,6 +17,3 @@ if(isset($_POST['folder'])){
 }else{
     echo "{\"error\":\"No folder set\"}";
 }
-
-
-?>

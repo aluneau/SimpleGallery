@@ -13,5 +13,3 @@ foreach ($arr as $result) {
 }
 
 echo json_encode($results);
-
-?>

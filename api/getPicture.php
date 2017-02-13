@@ -19,4 +19,3 @@ try {
     // Handle errors
     echo $err->getMessage();
 }
-
