@@ -7,8 +7,13 @@ if(isset($_POST['folder'])){
     $results = array();
     if(is_dir($path)){
         $images = preg_grep('~\.(jpeg|jpg|png)$~', scandir($path));
+        $id = 0;
         foreach ($images as $result) {
-            array_push($results, $result);
+            $object = array();
+            $object['id'] = $id;
+            $id++;
+            $object['fileName']=$result;
+            array_push($results, $object);
         }
         echo json_encode($results);
     }else{

@@ -1,8 +1,11 @@
-<h1>Photo</h1>
-{{folder}} <br/>
+<div class="pictures">
+    <h1>Photo</h1>
+    <a href="#!/">Retour albums</a><br/>
+    {{folder}} <br/>
 
-<div class="col-xs-6 col-md-2 thumbnail" ng-repeat="picture in pictures">
-    <a href="#!/picture/{{folder}}/{{picture}}">
-        <img ng-src="./api/getPicture.php?folder={{folder}}&file={{picture}}&thumb=1">
-    </a>
+    <div class="col-xs-6 col-md-2 thumbnail" ng-repeat="picture in pictures">
+        <a href="#!/picture/{{folder}}/{{picture.id}}">
+            <img ng-src="./api/getPicture.php?folder={{folder}}&file={{picture.fileName}}&thumb=1">
+        </a>
+    </div>
 </div>

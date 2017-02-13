@@ -52,7 +52,7 @@ app.factory('PictureFactory', function ($http, $q) {
             });
             return deferred.promise;
         },
-        getPictures(folderName){
+        getPictures: function(folderName){
             let deferred = $q.defer();
             $http.post('api/getPictures.php', {folder: folderName}).then(function (response) {
                 factory.pictures = response.data;
@@ -61,19 +61,52 @@ app.factory('PictureFactory', function ($http, $q) {
                 deferred.reject("impossible de récuperer les photos du dossier")
             });
             return deferred.promise;
+        },
+        getPictureName: function(folderName, id){
+            let deferred = $q.defer();
+            factory.getPictures(folderName).then(function(pictures){
+                for (let i =0; i<pictures.length; i++){
+                    if(pictures[i].id == id){
+                        deferred.resolve(pictures[i].fileName);
+                    }
+                }
+            }, function(msg){
+                deferred.reject(msg);
+                alert(msg);
+            });
+            return deferred.promise;
         }
     };
     return factory;
 });
 
 app.controller("PictureController", function($scope, PictureFactory, $routeParams, $location){
-    $scope.keyPressed = function(e) {
-        $scope.keyCode = e.keyCode;
-        console.log($scope.keyCode);
-    };
     PictureFactory.isFolderExist($routeParams.folder).then(function(){
         $scope.folder = $routeParams.folder;
         $scope.id = $routeParams.id;
+        PictureFactory.getPictureName($routeParams.folder, $routeParams.id).then(function(fileName){
+            $scope.fileName = fileName;
+        }, function(msg){
+            alert("msg");
+        });
+
+        $scope.keyPressed = function(e) {
+            if(e.keyCode==39) {
+                e.preventDefault();
+                if(($scope.id)<(PictureFactory.pictures.length-1)) {
+                    $scope.id++;
+                    $location.path("/picture/" + $scope.folder + "/" + $scope.id);
+                    $location.replace();
+                }
+            }else if(e.keyCode==37){
+                e.preventDefault();
+                if(($scope.id-1) >= 0) {
+                    $scope.id--;
+                    $location.path("/picture/" + $scope.folder + "/" + $scope.id);
+                    $location.replace();
+                }
+            }
+        };
     }, function(){
         $location.path('/');
         $location.replace();
