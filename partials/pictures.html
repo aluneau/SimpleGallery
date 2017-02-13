@@ -1,6 +1,6 @@
 <h1>Photo</h1>
 {{folder}} <br/>
 
-<div ng-repeat="picture in pictures">
-  <img ng-src="./api/data/{{folder}}/{{picture}}">
+<div class="col-xs-6 col-md-2 thumbnail" ng-repeat="picture in pictures">
+    <img ng-src="./api/getPicture.php?folder={{folder}}&file={{picture}}&thumb=1">
 </div>
