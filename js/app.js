@@ -7,6 +7,20 @@ app.config(function ($routeProvider) {
         .otherwise({redirectTo: "/"});
 });
 
+app.directive('shortcut', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: true,
+        link:    function postLink(scope){
+            document.onkeydown = checkKey;
+            function checkKey(e){
+                scope.$apply(scope.keyPressed(e));
+            }
+        }
+    };
+});
+
 
 app.factory('PictureFactory', function ($http, $q) {
     let factory = {
@@ -53,6 +67,10 @@ app.factory('PictureFactory', function ($http, $q) {
 });
 
 app.controller("PictureController", function($scope, PictureFactory, $routeParams, $location){
+    $scope.keyPressed = function(e) {
+        $scope.keyCode = e.keyCode;
+        console.log($scope.keyCode);
+    };
     PictureFactory.isFolderExist($routeParams.folder).then(function(){
         $scope.folder = $routeParams.folder;
         $scope.id = $routeParams.id;
