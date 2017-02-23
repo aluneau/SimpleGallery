@@ -1,6 +1,70 @@
 body {
-    padding-top: 70px;
+    background-color: #f2fefe;
 }
 .container{
-    padding-top:10px;
+}
+
+.title{
+    text-align: center;
+    padding-top: 30px;
+    font-family: "chunkfiveregular", serif;
+    font-size: 70px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.lets-get {
+    color: #ffffff;
+}
+/* Text style for "LOST" */
+.lost {
+    color: #01a2a6;
+}
+.presentation{
+    width: 100%;
+    min-height: 170px;
+    background: #9bddd8 linear-gradient(180deg, #9bddd8, #B3FFFA);
+
+}
+
+/* Style for "Shape 6" */
+.navbar-perso {
+    width: 1440px;
+    height: 168px;
+    background-color: #2f2933;
+    opacity: 0.54;
+}
+
+/* Style for "YokNgalam" */
+.yokngalam {
+    width: 154px;
+    height: 25px;
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 25px;
+}
+/* Text style for "Yok" */
+.yok {
+    font-weight: 400;
+}
+/* Text style for "Ngalam" */
+.ngalam {
+    font-weight: 700;
+}
+
+.btn-perso{
+    border-radius:50px;
+    width: 222px;
+    height: 70px;
+    background-color: #ffffa6;
+    color: #10273d;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.btn-perso-text{
+    padding-top:22px;
+    text-align: center;
 }
