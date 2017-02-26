@@ -134,7 +134,24 @@ app.controller("PicturesController", function ($scope, PictureFactory, $routePar
 
 app.controller('GalleryController', function ($scope, PictureFactory) {
     PictureFactory.getFolders().then(function (folders) {
-        $scope.folders = folders;
+        $scope.folders=[];
+        for (let i=0; i<folders.length; i++){
+            PictureFactory.getPictures(folders[i]).then(function(pictures){
+                pictures[0].folderName = folders[i];
+                $scope.folders.push(pictures[0]);
+            }, function(msg){
+                alert(msg);
+            });
+        }
+
+        $scope.getPicture = function(folderName){
+            for (let i=0; i<$scope.folders; i++){
+                if($scope.folders[i] == folderName){
+                    console.log(i);
+                    return i;
+                }
+            }
+        }
     }, function (msg) {
         alert(msg);
     });

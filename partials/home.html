@@ -1,4 +1,13 @@
 <div ng-include="'partials/homebar.html'"></div>
+
+{{pictures}}
 <div ng-repeat="folder in folders">
-  <a href="#!/pictures/{{folder}}">{{folder}}</a>
+  <a href="#!/pictures/{{folder.folderName}}">
+  <div class="album col-xs-2">
+    <div class="albumTitle">
+        {{folder.folderName}}
+    </div>
+    <img class="imgAlbum" ng-src="./api/getPicture.php?folder={{folder.folderName}}&file={{folder.fileName}}&thumb=1">
+  </div>
+  </a>
 </div>
