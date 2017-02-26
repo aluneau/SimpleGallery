@@ -55,20 +55,35 @@ body {
 }
 
 .btn-perso{
-    border-radius:50px;
+    margin-top:10px;
+    margin-bottom:10px;
+    border-radius:15px;
     width: 222px;
-    height: 70px;
-    background-color: #ffffa6;
+    height: 50px;
+    background: linear-gradient( #ffffa6, #f5f5a8);
     color: #10273d;
     font-family: Lato;
     font-size: 16px;
     font-weight: 900;
     text-transform: uppercase;
+    transition: all 0.2s;
 }
 
+.btn-perso:hover{
+    background: linear-gradient( #f5f5a0, #ffffb0);
+}
 .btn-perso-text{
-    padding-top:22px;
+    padding-top:5px;
     text-align: center;
+    color: #01a2a6;
+    text-shadow: 0 1px 0 rgba( 255, 255, 255, 0.2);
+
+}
+
+.btn-retour{
+    position:absolute;
+    top:100px;
+    left:20px;
 }
 
 .album{
@@ -128,4 +143,27 @@ body {
     height:100%;
     object-fit: cover;
 
+}
+
+.pictures{
+    margin-top:15px;
+}
+
+@media only screen and (max-width:1260px) {
+    .title{
+        padding-top:20px;
+        margin-right:10px;
+        padding-left:230px;
+        font-size:15px;
+        text-align:right;
+
+    }
+    .presentation {
+        min-height: 0px;
+        height: 70px;
+    }
+    .btn-retour{
+        top:0;
+        left:10px;
+    }
 }

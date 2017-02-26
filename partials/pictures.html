@@ -1,8 +1,20 @@
-<div ng-include="'partials/homebaralbum.html'"></div>
+<div class="container-full">
+    <div class="presentation">
+        <div>
+                <a href="#!/">
+                    <div class="btn btn-perso btn-retour">
+                        <div class="btn-perso-text">
+                            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                            Retour albums
+                        </div>
+                    </div>
+                </a>
+                <div class="title"><span class="lost">{{folder}}</span></div>
+        </div>
+    </div>
+</div>
 
 <div class="pictures">
-    <a href="#!/">Retour albums</a><br/>
-
     <div class="col-xs-6 col-md-2 thumbnail" ng-repeat="picture in pictures">
         <a href="#!/picture/{{folder}}/{{picture.id}}">
             <img ng-src="./api/getPicture.php?folder={{folder}}&file={{picture.fileName}}&thumb=1">

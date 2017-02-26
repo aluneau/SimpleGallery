@@ -1,5 +1,7 @@
 <div>
     <shortcut></shortcut>
-    <div class="btn-perso"> <div class="btn-perso-text"><a href="#!/pictures/{{folder}}">Retour à l'album</a></div></div>
-        <img class=picturePicture" ng-src="./api/getPicture.php?folder={{folder}}&file={{fileName}}">
+    <a href="#!/pictures/{{folder}}">
+        <div class="btn btn-perso"><div class="btn-perso-text">Retour à l'album</div></div>
+    </a><br/>
+    <img class=picturePicture" ng-src="./api/getPicture.php?folder={{folder}}&file={{fileName}}">
 </div>
