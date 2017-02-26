@@ -87,7 +87,7 @@ app.controller("PictureController", function($scope, PictureFactory, $routeParam
         PictureFactory.getPictureName($routeParams.folder, $routeParams.id).then(function(fileName){
             $scope.fileName = fileName;
         }, function(msg){
-            alert("msg");
+            alert(msg);
         });
 
         $scope.keyPressed = function(e) {
