@@ -4,7 +4,9 @@ body {
 .container{
     padding-top:200px;
 }
-
+.container-full{
+    padding-top:200px;
+}
 .title{
     text-align: center;
     padding-top: 30px;
