@@ -1,5 +1,5 @@
 <div class="container-full">
-    <div class="presentation">
+    <div class="presentation navbar-fixed-top">
         <div>
                 <a href="#!/">
                     <div class="btn btn-perso btn-retour">
@@ -14,10 +14,12 @@
     </div>
 </div>
 
+<div class="container">
 <div class="pictures">
     <div class="col-xs-6 col-md-2 thumbnail" ng-repeat="picture in pictures">
         <a href="#!/picture/{{folder}}/{{picture.id}}">
             <img ng-src="./api/getPicture.php?folder={{folder}}&file={{picture.fileName}}&thumb=1">
         </a>
     </div>
+</div>
 </div>

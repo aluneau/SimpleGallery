@@ -2,6 +2,7 @@ body {
     background-color: #f2fefe;
 }
 .container{
+    padding-top:200px;
 }
 
 .title{
@@ -148,6 +149,9 @@ body {
 }
 
 @media only screen and (max-width:1260px) {
+    .container{
+        padding-top:75px;
+    }
     .title{
         padding-top:15px;
         margin-right:10px;
