@@ -16,7 +16,7 @@
 
 <div class="container-full">
     <div class="pictures">
-        <div class="col-xs-6 col-md-2 thumbnail" ng-repeat="picture in pictures">
+        <div class="col-xs-6 col-md-2 thumbnail pictureThumb" ng-repeat="picture in pictures">
             <a href="#!/picture/{{folder}}/{{picture.id}}">
                 <img ng-src="./api/getPicture.php?folder={{folder}}&file={{picture.fileName}}&thumb=1">
             </a>

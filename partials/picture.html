@@ -1,7 +1,24 @@
 <div>
+    <div class="presentation navbar-fixed-top">
+        <div>
+            <a href="#!/pictures/{{folder}}">
+                <div class="btn btn-perso btn-retour">
+                    <div class="btn-perso-text">
+                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                        Retour album
+                    </div>
+                </div>
+            </a>
+            <div class="title"><span class="lost">{{folder}}</span></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-full">
     <shortcut></shortcut>
-    <a href="#!/pictures/{{folder}}">
-        <div class="btn btn-perso"><div class="btn-perso-text">Retour à l'album</div></div>
-    </a><br/>
-    <img class=picturePicture" ng-src="./api/getPicture.php?folder={{folder}}&file={{fileName}}">
+    <div class="col-lg-3"></div>
+    <div class="picture col-lg-6">
+        <img ng-src="./api/getPicture.php?folder={{folder}}&file={{fileName}}">
+    </div>
+    <div class="col-lg-3"></div>
 </div>
