@@ -149,9 +149,6 @@ body {
 .pictureThumb{
     border-radius:7px;
     padding:0 0 0 0;
-    margin-top:20px;
-    margin-left:10px;
-    margin-right:10px;
     box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
 }
 
@@ -159,6 +156,12 @@ body {
     border-radius:7px;
     width:100%;
     height:auto;
+}
+
+.picturePadding{
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:15px;
 }
 
 .picture img{
