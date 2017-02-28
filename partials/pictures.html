@@ -1,25 +1,25 @@
 <div>
     <div class="presentation navbar-fixed-top">
         <div>
-                <a href="#!/">
-                    <div class="btn btn-perso btn-retour">
-                        <div class="btn-perso-text">
-                            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-                            Retour albums
-                        </div>
+            <a href="#!/">
+                <div class="btn btn-perso btn-retour">
+                    <div class="btn-perso-text">
+                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                        Retour albums
                     </div>
-                </a>
-                <div class="title"><span class="lost">{{folder}}</span></div>
+                </div>
+            </a>
+            <div class="title"><span class="lost">{{folder}}</span></div>
         </div>
     </div>
 </div>
 
 <div class="container-full">
-<div class="pictures">
-    <div class="col-xs-6 col-md-2 thumbnail" ng-repeat="picture in pictures">
-        <a href="#!/picture/{{folder}}/{{picture.id}}">
-            <img ng-src="./api/getPicture.php?folder={{folder}}&file={{picture.fileName}}&thumb=1">
-        </a>
+    <div class="pictures">
+        <div class="col-xs-6 col-md-2 thumbnail" ng-repeat="picture in pictures">
+            <a href="#!/picture/{{folder}}/{{picture.id}}">
+                <img ng-src="./api/getPicture.php?folder={{folder}}&file={{picture.fileName}}&thumb=1">
+            </a>
+        </div>
     </div>
-</div>
 </div>
