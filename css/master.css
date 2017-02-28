@@ -154,6 +154,9 @@ body {
     .container{
         padding-top:75px;
     }
+    .container-full{
+        padding-top:75px;
+    }
     .title{
         padding-top:15px;
         margin-right:10px;
